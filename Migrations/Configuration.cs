@@ -5,14 +5,14 @@
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<SIVU_OLIVIU_ID_IE_PROIECT_MP.BloggingContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<SIVU_OLIVIU_ID_IE_PROIECT_MP.MoviesContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(SIVU_OLIVIU_ID_IE_PROIECT_MP.BloggingContext context)
+        protected override void Seed(SIVU_OLIVIU_ID_IE_PROIECT_MP.MoviesContext context)
         {
             //  This method will be called after migrating to the latest version.
 

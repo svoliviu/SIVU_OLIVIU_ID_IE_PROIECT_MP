@@ -1,13 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using SIVU_OLIVIU_ID_IE_PROIECT_MP.Models;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
 {
@@ -26,8 +20,17 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
                 });
     }
 
-    public class BloggingContext : DbContext
+    public class MoviesContext : DbContext
     {
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+        public DbSet<Director> Directors { get; set; }
+        public DbSet<Actor> Actors { get; set; }
+
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
