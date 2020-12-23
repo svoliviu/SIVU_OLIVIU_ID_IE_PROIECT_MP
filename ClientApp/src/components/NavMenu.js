@@ -58,8 +58,8 @@ export class NavMenu extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink tag={Link} className="text-dark" to="/directors">
-                    Movie Directors
+                  <NavLink tag={Link} className="text-dark" to="/actors">
+                    Movie Actors
                   </NavLink>
                 </NavItem>
               </ul>

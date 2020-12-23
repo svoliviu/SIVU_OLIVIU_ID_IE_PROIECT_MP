@@ -22,6 +22,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IMovieDirectorRepository, MovieDirectorRepository>();
+            services.AddScoped<IMovieActorRepository, MovieActorRepository>();
 
             services.AddControllersWithViews();
 
