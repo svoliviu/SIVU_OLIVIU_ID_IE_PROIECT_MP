@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SIVU_OLIVIU_ID_IE_PROIECT_MP.Repositories;
 
 namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
 {
@@ -20,6 +21,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddScoped<IMovieDirectorRepository, MovieDirectorRepository>();
 
             services.AddControllersWithViews();
 
@@ -55,6 +57,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
+
             });
 
             app.UseSpa(spa =>

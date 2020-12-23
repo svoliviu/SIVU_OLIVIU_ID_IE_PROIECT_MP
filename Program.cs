@@ -18,6 +18,8 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        
     }
 
     public class MoviesContext : DbContext
