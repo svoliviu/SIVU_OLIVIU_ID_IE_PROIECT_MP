@@ -32,15 +32,15 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Repositories
             return this.moviesContext.Actors.ToList();
         }
 
+        public IEnumerable<Actor> GetActorsByIds(IEnumerable<int> ids)
+        {
+            return this.moviesContext.Actors.Where(a => ids.Contains(a.Id));
+        }
+
         public void InsertActor(Actor actor)
         {
             this.moviesContext.Actors.Add(actor);
             this.moviesContext.SaveChanges();
-        }
-
-        public void Save()
-        {
-            throw new NotImplementedException();
         }
 
         public Actor UpdateActor(int actorId, ActorViewModel actorViewModel)

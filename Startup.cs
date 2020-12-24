@@ -23,8 +23,10 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
         {
             services.AddScoped<IMovieDirectorRepository, MovieDirectorRepository>();
             services.AddScoped<IMovieActorRepository, MovieActorRepository>();
+            services.AddScoped<IMovieGenreRepository, MovieGenreRepository>();
+            services.AddScoped<IMovieRepository, MovieRepository>();
 
-            services.AddControllersWithViews();
+            services.AddControllers();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>

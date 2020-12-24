@@ -8,6 +8,8 @@ import EditDirector from "./components/EditDirector";
 import MovieActors from "./components/ListActors";
 import CreateActor from "./components/CreateActor";
 import EditActor from "./components/EditActor";
+import CreateMovie from "./components/CreateMovie";
+import CreateGenre from "./components/CreateGenre";
 
 import "./custom.css";
 
@@ -22,6 +24,8 @@ export default class App extends Component {
         <Route path="/actors" component={MovieActors} />
         <Route path="/create-director" component={CreateDirector} />
         <Route path="/create-actor" component={CreateActor} />
+        <Route path="/create-genre" component={CreateGenre} />
+        <Route path="/create-movie" component={CreateMovie} />
         <Route path="/edit-director/:id" component={EditDirector} />
         <Route path="/edit-actor/:id" component={EditActor} />
       </Layout>

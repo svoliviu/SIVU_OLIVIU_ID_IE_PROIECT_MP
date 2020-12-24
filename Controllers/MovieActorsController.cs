@@ -57,7 +57,5 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Controllers
 
             return Ok();
         }
-
-        
     }
 }

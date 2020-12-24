@@ -1,13 +1,16 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Models
 {
     public class Movie
     {
+        public Movie()
+        {
+            this.Genres = new List<Genre>();
+            this.Cast = new List<Actor>();
+        }
+
         public int Id { get; set; }
 
         public string Title { get; set; }
