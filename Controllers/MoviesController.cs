@@ -35,7 +35,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Controllers
             {
                 Title = movieViewModel.Title,
                 Description = movieViewModel.Description,
-                ReleaseDate = DateTime.Now,
+                ReleaseDate = DateTime.Parse(movieViewModel.ReleaseDate),
                 Rating = movieViewModel.Rating,
             };
 

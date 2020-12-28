@@ -8,6 +8,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.ViewModels
         public string Title { get; set; }
         public string Description { get; set; }
         public int Rating { get; set; }
+        public string ReleaseDate { get; set; }
         public IEnumerable<int> Actors { get; set; }
         public IEnumerable<int> Genres { get; set; }
     }

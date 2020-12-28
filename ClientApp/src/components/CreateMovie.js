@@ -37,7 +37,7 @@ const CreateMovie = () => {
     const body = JSON.stringify({
       title: data.title,
       description: data.description,
-      releaseDate: new Date(),
+      releaseDate: data.releaseDate,
       rating: parseInt(data.rating),
       actors: selectedActors,
       genres: selectedGenres,
@@ -94,6 +94,9 @@ const CreateMovie = () => {
         />
 
         <input
+          type="date"
+          min="1920-01-01"
+          max="2025-12-31"
           name="releaseDate"
           placeholder="Release Date"
           ref={register({ required: true })}
