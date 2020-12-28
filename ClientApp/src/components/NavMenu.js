@@ -62,6 +62,16 @@ export class NavMenu extends Component {
                     Movie Actors
                   </NavLink>
                 </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/genres">
+                    Movie Genres
+                  </NavLink>
+                </NavItem>
+                <NavItem>
+                  <NavLink tag={Link} className="text-dark" to="/create-movie">
+                    Create Movie
+                  </NavLink>
+                </NavItem>
               </ul>
             </Collapse>
           </Container>

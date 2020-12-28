@@ -1,6 +1,5 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -24,7 +23,6 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP
             services.AddScoped<IMovieDirectorRepository, MovieDirectorRepository>();
             services.AddScoped<IMovieActorRepository, MovieActorRepository>();
             services.AddScoped<IMovieGenreRepository, MovieGenreRepository>();
-            services.AddScoped<IMovieRepository, MovieRepository>();
 
             services.AddControllers();
 

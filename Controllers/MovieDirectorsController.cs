@@ -15,23 +15,28 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Controllers
             this.movieDirectorRepository = movieDirectorRepository;
         }
 
-        [HttpGet("Index")]
+        [HttpGet]
         public IEnumerable<Director> Index()
         {
             return this.movieDirectorRepository.GetDirectors();
         }
 
-        [HttpGet("One/{id}")]
+        [HttpGet("{id}")]
         public Director GetOne(int id) {
             return this.movieDirectorRepository.GetDirectorById(id);
         }
 
-        [HttpPost("Create")]
+        [HttpGet("/name/{id}")]
+        public Director GetOneByName(string name)
+        {
+            return this.movieDirectorRepository.GetDirectorByName(name);
+        }
+
+        [HttpPost]
         public NoContentResult Create([FromBody] DirectorViewModel directorViewModel) {
 
             Director director = new Director();
-            director.FirstName = directorViewModel.FirstName;
-            director.LastName = directorViewModel.LastName;
+            director.Name = directorViewModel.Name;
             director.Age = directorViewModel.Age;
 
             this.movieDirectorRepository.InsertDirector(director);
@@ -39,7 +44,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Controllers
             return NoContent();
         }
 
-        [HttpPut("One/{id}")]
+        [HttpPut("{id}")]
         public Director Update([FromBody] DirectorViewModel directorViewModel, int id) {
 
             Director updatedDirector = this.movieDirectorRepository.UpdateDirector(id, directorViewModel);
@@ -47,7 +52,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Controllers
             return updatedDirector;
         }
 
-        [HttpDelete("One/{id}")]
+        [HttpDelete("{id}")]
         public OkResult Delete(int id) {
             Director director = this.movieDirectorRepository.GetDirectorById(id);
 

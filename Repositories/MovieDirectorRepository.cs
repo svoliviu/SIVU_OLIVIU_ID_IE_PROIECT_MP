@@ -25,6 +25,11 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Repositories
             return moviesContext.Directors.First(d => d.Id == directorId);
         }
 
+        public Director GetDirectorByName(string directorName)
+        {
+            return moviesContext.Directors.First(d => d.Name == directorName);
+        }
+
         public IEnumerable<Director> GetDirectors()
         {
             return moviesContext.Directors.ToList();
@@ -45,8 +50,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Repositories
         {
             Director director = moviesContext.Directors.First(d => d.Id == directorId);
 
-            director.FirstName = directorViewModel.FirstName;
-            director.LastName = directorViewModel.LastName;
+            director.Name = directorViewModel.Name;
             director.Age = directorViewModel.Age;
 
             moviesContext.SaveChanges();

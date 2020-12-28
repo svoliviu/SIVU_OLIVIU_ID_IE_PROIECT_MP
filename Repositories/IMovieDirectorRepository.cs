@@ -8,6 +8,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Repositories
     {
         IEnumerable<Director> GetDirectors();
         Director GetDirectorById(int directorId);
+        Director GetDirectorByName(string directorName);
         void InsertDirector(Director director);
         void DeleteDirector(Director director);
         Director UpdateDirector(int directorId, DirectorViewModel directorViewModel);

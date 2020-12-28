@@ -4,19 +4,20 @@ import { useForm } from "react-hook-form";
 
 const EditDirector = () => {
   const { id } = useParams();
+
   const history = useHistory();
+
   const { register, handleSubmit, errors, setValue } = useForm();
 
   const [director, setDirector] = useState({});
 
   useEffect(() => {
     const getDirector = async () => {
-      const response = await fetch(`/MovieDirectors/One/${id}`);
+      const response = await fetch(`/MovieDirectors/${id}`);
       const data = await response.json();
 
       setDirector(data);
-      setValue("firstName", data.firstName);
-      setValue("lastName", data.lastName);
+      setValue("name", data.name);
       setValue("age", data.age);
     };
 
@@ -24,11 +25,10 @@ const EditDirector = () => {
   }, []);
 
   const onSubmit = (data) => {
-    fetch(`/MovieDirectors/One/${id}`, {
+    fetch(`/MovieDirectors/${id}`, {
       method: "PUT",
       body: JSON.stringify({
-        firstName: data.firstName,
-        lastName: data.lastName,
+        name: data.name,
         age: parseInt(data.age),
       }),
       headers: { "Content-Type": "application/json" },
@@ -42,13 +42,10 @@ const EditDirector = () => {
         className="flex flex-column space-around h-200 w-300"
         onSubmit={handleSubmit(onSubmit)}
       >
-        {/* register your input into the hook by invoking the "register" function */}
-        <input name="firstName" placeholder="First Name" ref={register} />
-
         {/* include validation with required or other standard HTML validation rules */}
         <input
-          name="lastName"
-          placeholder="Last Name"
+          name="name"
+          placeholder="Name"
           ref={register({ required: true })}
         />
 
@@ -60,8 +57,8 @@ const EditDirector = () => {
         />
 
         {/* errors will return when field validation fails  */}
-        {errors.lastName && <span>This field is required</span>}
-        {errors.age && <span>This field is required</span>}
+        {errors.name && <span>Name is required</span>}
+        {errors.age && <span>Age is required</span>}
 
         <input type="submit" />
       </form>

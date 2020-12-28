@@ -5,7 +5,7 @@ const MovieDirectors = () => {
   const [directors, setDirectors] = useState([]);
 
   const getDirectors = async () => {
-    const response = await fetch("/MovieDirectors/Index");
+    const response = await fetch("/MovieDirectors");
     const data = await response.json();
     setDirectors(data);
   };
@@ -15,8 +15,7 @@ const MovieDirectors = () => {
   }, []);
 
   const deleteDirector = (id) => {
-    console.log("aci ni");
-    fetch(`/MovieDirectors/One/${id}`, {
+    fetch(`/MovieDirectors/${id}`, {
       method: "DELETE",
     }).then(() => getDirectors());
   };
@@ -26,8 +25,7 @@ const MovieDirectors = () => {
       <table className="table table-striped" aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Age</th>
             <th>Actions</th>
           </tr>
@@ -35,13 +33,9 @@ const MovieDirectors = () => {
         <tbody>
           {directors.map((director) => (
             <tr key={director.id}>
-              <td>{director.firstName}</td>
-              <td>{director.lastName}</td>
+              <td>{director.name}</td>
               <td>{director.age}</td>
               <td>
-                <Link to="/view-director">
-                  <button className="btn-primary mr-10">View</button>
-                </Link>
                 <Link to={`/edit-director/${director.id}`}>
                   <button className="btn-primary mr-10">Edit</button>
                 </Link>

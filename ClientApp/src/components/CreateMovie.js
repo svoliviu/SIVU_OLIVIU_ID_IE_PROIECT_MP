@@ -10,6 +10,7 @@ const CreateMovie = () => {
 
   const [actors, setActors] = useState([]);
   const [genres, setGenres] = useState([]);
+  const [directors, setDirectors] = useState([]);
 
   const [selectedActors, setSelectedActors] = useState([]);
   const [selectedGenres, setSelectedGenres] = useState([]);
@@ -28,9 +29,17 @@ const CreateMovie = () => {
     setGenres(data);
   };
 
+  const getDirectors = async () => {
+    const response = await fetch("/MovieDirectors");
+    const data = await response.json();
+
+    setDirectors(data);
+  };
+
   useEffect(() => {
     getActors();
     getGenres();
+    getDirectors();
   }, []);
 
   const onSubmit = (data) => {
@@ -41,15 +50,14 @@ const CreateMovie = () => {
       rating: parseInt(data.rating),
       actors: selectedActors,
       genres: selectedGenres,
+      director: data.director,
     });
-
-    console.log(body);
 
     fetch("/Movies", {
       method: "POST",
       body: body,
       headers: { "Content-Type": "application/json" },
-    }).then(() => history.push("/movies"));
+    }).then(() => history.push("/"));
   };
 
   const onActorSelect = (options) => {
@@ -124,6 +132,14 @@ const CreateMovie = () => {
           onRemove={(e) => onGenreRemove(e)} // Function will trigger on remove event
           displayValue="name" // Property name to display in the dropdown options
         />
+
+        <select name="director" ref={register({ required: true })}>
+          {directors.map((director) => (
+            <option key={director.id} value={director.name}>
+              {director.name}
+            </option>
+          ))}
+        </select>
 
         {/* errors will return when field validation fails  */}
         {errors.description && <span>Description is required</span>}

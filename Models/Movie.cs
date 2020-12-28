@@ -25,6 +25,6 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Models
 
         public virtual ICollection<Actor> Cast { get; set; }
 
-        public Director Director { get; set; }
+        public virtual Director Director { get; set; }
     }
 }
