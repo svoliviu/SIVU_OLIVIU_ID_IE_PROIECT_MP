@@ -25,8 +25,7 @@ const MovieActors = () => {
       <table className="table table-striped" aria-labelledby="tabelLabel">
         <thead>
           <tr>
-            <th>First Name</th>
-            <th>Last Name</th>
+            <th>Name</th>
             <th>Age</th>
             <th>Actions</th>
           </tr>
@@ -34,8 +33,7 @@ const MovieActors = () => {
         <tbody>
           {actors.map((actor) => (
             <tr key={actor.id}>
-              <td>{actor.firstName}</td>
-              <td>{actor.lastName}</td>
+              <td>{actor.name}</td>
               <td>{actor.age}</td>
               <td>
                 <Link to="/view-actor">

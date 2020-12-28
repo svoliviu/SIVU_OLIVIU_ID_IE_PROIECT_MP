@@ -47,8 +47,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Repositories
         {
             Actor actor = this.moviesContext.Actors.First(a => a.Id == actorId);
 
-            actor.FirstName = actorViewModel.FirstName;
-            actor.LastName = actorViewModel.LastName;
+            actor.Name = actorViewModel.Name;
             actor.Age = actorViewModel.Age;
             actor.Nationality = actorViewModel.Nationality;
 

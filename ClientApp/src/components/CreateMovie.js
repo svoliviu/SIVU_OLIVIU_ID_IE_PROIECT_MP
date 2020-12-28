@@ -111,7 +111,7 @@ const CreateMovie = () => {
           options={actors} // Options to display in the dropdown
           onSelect={(e) => onActorSelect(e)} // Function will trigger on select event
           onRemove={(e) => onActorRemove(e)} // Function will trigger on remove event
-          displayValue="firstName" // Property name to display in the dropdown options
+          displayValue="name" // Property name to display in the dropdown options
         />
 
         <Multiselect

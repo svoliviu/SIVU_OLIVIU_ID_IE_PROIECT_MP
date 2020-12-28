@@ -10,8 +10,7 @@ const CreateActor = () => {
     fetch("/MovieActors", {
       method: "POST",
       body: JSON.stringify({
-        firstName: data.firstName,
-        lastName: data.lastName,
+        name: data.name,
         age: parseInt(data.age),
         nationality: data.nationality,
       }),
@@ -27,14 +26,7 @@ const CreateActor = () => {
         onSubmit={handleSubmit(onSubmit)}
       >
         {/* register your input into the hook by invoking the "register" function */}
-        <input name="firstName" placeholder="First Name" ref={register} />
-
-        {/* include validation with required or other standard HTML validation rules */}
-        <input
-          name="lastName"
-          placeholder="Last Name"
-          ref={register({ required: true })}
-        />
+        <input name="name" placeholder="Name" ref={register} />
 
         <input
           name="age"
@@ -50,8 +42,7 @@ const CreateActor = () => {
         />
 
         {/* errors will return when field validation fails  */}
-        {errors.lastName && <span>Last Name is required</span>}
-        {errors.firstName && <span>First Name is required</span>}
+        {errors.name && <span>Name is required</span>}
         {errors.age && <span>Age is required</span>}
         {errors.nationality && <span>Nationality is required</span>}
 

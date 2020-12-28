@@ -31,8 +31,7 @@ namespace SIVU_OLIVIU_ID_IE_PROIECT_MP.Controllers
 
             Actor actor = new Actor
             {
-                FirstName = actorViewModel.FirstName,
-                LastName = actorViewModel.LastName,
+                Name = actorViewModel.Name,
                 Age = actorViewModel.Age,
                 Nationality = actorViewModel.Nationality
             };
